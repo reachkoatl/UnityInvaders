@@ -12,9 +12,13 @@ public class MysteryShip : MonoBehaviour
     public int shiptotal;
     ScoreController player;
     private int score;
+    public GameObject shipSound;
+    public GameObject destructionsound;
+
 
     void Start()
     {
+        //Instantiate(shipSound);
         player = GameObject.Find("ScoreTotal").GetComponent<ScoreController>();
 
     }
@@ -42,13 +46,10 @@ public class MysteryShip : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //print("hello");
-        //PlayerPrefs.SetInt("scoreship", 10);
-
+        shipSound.SetActive(false);
+        Instantiate(destructionsound);
         score = 10;
         player.SetScore(score);
-        
         this.gameObject.SetActive(false);
-        //Destroy(this.gameObject);
     }
 }
