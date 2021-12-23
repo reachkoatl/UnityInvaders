@@ -18,7 +18,6 @@ public class MysteryShip : MonoBehaviour
 
     void Start()
     {
-        //Instantiate(shipSound);
         player = GameObject.Find("ScoreTotal").GetComponent<ScoreController>();
 
     }
