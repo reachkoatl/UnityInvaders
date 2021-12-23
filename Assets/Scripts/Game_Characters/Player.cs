@@ -14,22 +14,46 @@ public class Player : MonoBehaviour
     public GameObject shootingsound;
     public GameObject diesound;
     public Sprite Die;
+    private Vector3 _direction = Vector2.right;
+
    
 
     private void Update()
     {
+
+
+        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
+        Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+        
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            if(this.transform.position.x <= (leftEdge.x + 1.0f))
+        {
+            
+        }else
         {
             this.transform.position += Vector3.left * this.speed * Time.deltaTime;
         }
+
+            
+        }
         else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            this.transform.position += Vector3.right * this.speed * Time.deltaTime;
+
+            if( this.transform.position.x >= (rightEdge.x - 1.0f))
+            {
+            }else
+            {
+                this.transform.position += Vector3.right * this.speed * Time.deltaTime;
+            }
+            
         }
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Shoot();
         }
+
+
     }
 
     private void Shoot()
@@ -60,6 +84,7 @@ public class Player : MonoBehaviour
            other.gameObject.layer == LayerMask.NameToLayer("Missile"))
            {
                 StartCoroutine ("Esperar");
+
                 Instantiate(diesound);
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = Die;
             }

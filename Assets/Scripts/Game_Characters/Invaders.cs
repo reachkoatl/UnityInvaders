@@ -77,7 +77,6 @@ public class Invaders : MonoBehaviour
     private void AdvanceRow()
     {
         _direction.x *= -1.0f;
-        Instantiate(destructionsound);
         Vector3 position = this.transform.position;
         position.y -= 1.0f;
         this.transform.position = position;
