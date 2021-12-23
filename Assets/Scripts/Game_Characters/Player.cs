@@ -1,13 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class Player : MonoBehaviour
 {
     public Proyectile laserPrefab;
-    
+    public SpriteRenderer spriteRenderer { get; private set; }
     public float speed = 5.0f;
     private bool _laserActive;
     private int initscore;
-
+    public GameObject shootingsound;
+    public GameObject diesound;
+    public Sprite Die;
+   
 
     private void Update()
     {
@@ -32,8 +39,8 @@ public class Player : MonoBehaviour
             Proyectile proyectile =  Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
             proyectile.destroyed += LaserDestroyed;
             _laserActive = true;
-        }
-        
+            Instantiate(shootingsound);
+        }    
     }
 
     private void LaserDestroyed()
@@ -52,11 +59,15 @@ public class Player : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Invader") || 
            other.gameObject.layer == LayerMask.NameToLayer("Missile"))
            {
-               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-           }
-        
+                StartCoroutine ("Esperar");
+                Instantiate(diesound);
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Die;
+            }
+    }
 
-        
-
+    IEnumerator Esperar()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);   
     }
 }

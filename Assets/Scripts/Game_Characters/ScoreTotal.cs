@@ -12,11 +12,7 @@ public class ScoreTotal : MonoBehaviour
     {
         total = PlayerPrefs.GetInt("scoretotal");
         textscore.text = "SCORE TOTAL: "+total.ToString();
+        PlayerPrefs.SetInt("scoretotal", 0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +18,7 @@ public class Invaders : MonoBehaviour
     public float percentKilled => (float)this.amountKilled / (float)this.totalInvaders;
     public Vector3 _direction = Vector2.right;
     private int dif;
+    public GameObject destructionsound;
     
     
 
@@ -27,7 +30,7 @@ public class Invaders : MonoBehaviour
             float height = 2.0f * (this.rows - 1);
             Vector2 centering = new Vector2(-widht / 2, -height / 2);
             Vector3 rowPosition = new Vector3(centering.x, centering.y + (row * 2.0f), 0.0f);
-            
+
             for(int col = 0; col < this.columns; col++)
             {
                 Invader invader = Instantiate(this.prefabs[row], this.transform);
@@ -70,10 +73,11 @@ public class Invaders : MonoBehaviour
         }
     }
 
+
     private void AdvanceRow()
     {
         _direction.x *= -1.0f;
-
+        Instantiate(destructionsound);
         Vector3 position = this.transform.position;
         position.y -= 1.0f;
         this.transform.position = position;

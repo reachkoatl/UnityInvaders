@@ -1,7 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(SpriteRenderer))]
 
 public class Invader : MonoBehaviour
 {
@@ -13,13 +14,17 @@ public class Invader : MonoBehaviour
     public int maxhp;
     public int hp;
     ScoreController player;
-    public int score;
+    private int score;
+    public GameObject destructionsound;
+    public Sprite DieInvasor;
+
 
     private void Awake()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.Find("ScoreTotal").GetComponent<ScoreController>();
-        //point = PlayerPrefs.GetInt("score");
+        
+        
     }
 
     private void Start()
@@ -42,51 +47,40 @@ public class Invader : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-
         if(other.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
-            
-
             maxhp--;
             
             if(maxhp==0){
-
-                Debug.Log("pego");
                 if(hp==1)
                 {
-                    score = 10;
-                
+                    score = 1;
                     player.SetScore(score);
-                    
                 }
 
                 if (hp==2)
                 {
-                    score = 20;
+                    score = 2;
                     player.SetScore(score);
-                    
                 }
 
                 if (hp==3)
                 {
-                    score = 30;
+                    score = 3;
                     player.SetScore(score);
-                
                 }
 
-                this.killed.Invoke();
-                this.gameObject.SetActive(false); 
-            }
-            
-
-            //point++;
-            
-            //PlayerPrefs.SetInt("score", point);
-            //point = PlayerPrefs.GetInt("score");
-            //Debug.Log(point);
-            
-        }
-    
+                Instantiate(destructionsound);
+                StartCoroutine("Muerte");
+            }          
+        }    
     } 
+
+    IEnumerator Muerte()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = DieInvasor;
+        yield return new WaitForSeconds(0.1f);
+        this.gameObject.SetActive(false);
+        this.killed.Invoke();
+    }
 }

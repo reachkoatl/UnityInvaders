@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8439996114973726947
+--- !u!1001 &3727762931382120101
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,16 +9,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -137856965958899179, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: hp
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -137856965958899179, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: maxhp
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -137856965958899179, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: point
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -137856965958899179, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
+      propertyPath: DieInvasor
+      value: 
+      objectReference: {fileID: 21300000, guid: c372d166cd3bf274a9f9fb3d90a44c95, type: 3}
+    - target: {fileID: -137856965958899179, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
+      propertyPath: destructionsound
+      value: 
+      objectReference: {fileID: 198644802503781608, guid: 75cd3f482d4b8034388ee24f9e9c40cc, type: 3}
     - target: {fileID: -137856965958899179, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: animationSprites.Array.size
       value: 2
@@ -26,30 +34,26 @@ PrefabInstance:
     - target: {fileID: -137856965958899179, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: animationSprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 4f61b253112880f4d83b2a935b6e7413, type: 3}
+      objectReference: {fileID: 21300000, guid: a0e58370ba3100f4abbb95155b3d3a4a, type: 3}
     - target: {fileID: -137856965958899179, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: animationSprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 643d42b87efaddf489bd31f24fe5254d, type: 3}
-    - target: {fileID: 39881416992620887, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
-      propertyPath: m_Size.x
-      value: 1.375
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 71ce5ea98a7679f4189dd80a3988b9a3, type: 3}
     - target: {fileID: 39881416992620887, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4f61b253112880f4d83b2a935b6e7413, type: 3}
+      objectReference: {fileID: 21300000, guid: a0e58370ba3100f4abbb95155b3d3a4a, type: 3}
     - target: {fileID: 39881416992620887, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_Color.b
-      value: 0.9150943
+      value: 0.11347453
       objectReference: {fileID: 0}
     - target: {fileID: 39881416992620887, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_Color.g
-      value: 0.1820662
+      value: 0.11347453
       objectReference: {fileID: 0}
     - target: {fileID: 39881416992620887, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_Color.r
-      value: 0.14244394
+      value: 0.9622642
       objectReference: {fileID: 0}
     - target: {fileID: 39881416992620887, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4725733342049107558, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_Size.x
-      value: 1.375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4725733342049107558, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_Size.y
@@ -73,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4725733342049107558, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1.375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4725733342049107558, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
@@ -81,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4725733342049107558, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4725733342049107558, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -93,11 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4884558108922311562, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_Name
-      value: Invader_02
+      value: Invader_01
       objectReference: {fileID: 0}
     - target: {fileID: 4884558108922311562, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_TagString
-      value: Invasor2
+      value: Invasor3
       objectReference: {fileID: 0}
     - target: {fileID: 7956285768328127982, guid: 2256a238ebb187a449bd73639b9af667, type: 3}
       propertyPath: m_RootOrder
